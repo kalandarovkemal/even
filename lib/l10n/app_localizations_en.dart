@@ -189,4 +189,29 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get informationalHint => 'This entry won\'t affect your total.';
+
+  @override
+  String get paywallTitle => 'Unlock Even';
+
+  @override
+  String get paywallSubtitle => 'One-time payment. Yours forever.';
+
+  @override
+  String get paywallFeatures =>
+      'Unlimited records · all currencies & live rates · all languages';
+
+  @override
+  String get unlock => 'Unlock';
+
+  @override
+  String get restore => 'Restore purchases';
+
+  @override
+  String get freeLimitNote => 'You\'ve reached the free limit of records.';
+
+  @override
+  String get purchaseThanks => 'Thank you! Everything is unlocked.';
+
+  @override
+  String get purchaseFailed => 'Purchase could not be completed.';
 }

@@ -8,6 +8,8 @@ abstract interface class LedgerRepository {
 
   Future<LedgerEntry?> findById(String id);
 
+  Future<int> count();
+
   Future<void> upsert(LedgerEntry entry);
 
   Future<void> delete(String id);

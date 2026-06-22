@@ -10,6 +10,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
 
   static const String _displayCurrencyKey = 'display_currency';
   static const String _languageKey = 'language_code';
+  static const String _unlockedKey = 'pro_unlocked';
   static const String _defaultCurrency = 'USD';
 
   @override
@@ -60,6 +61,31 @@ class SettingsRepositoryImpl implements SettingsRepository {
           AppSettingRowsCompanion(
             key: const Value(_languageKey),
             value: Value(code),
+          ),
+        );
+  }
+
+  @override
+  Stream<bool> watchUnlocked() {
+    final query = _db.select(_db.appSettingRows)
+      ..where((t) => t.key.equals(_unlockedKey));
+    return query.watchSingleOrNull().map((row) => row?.value == 'true');
+  }
+
+  @override
+  Future<bool> isUnlocked() async {
+    final row = await (_db.select(_db.appSettingRows)
+          ..where((t) => t.key.equals(_unlockedKey)))
+        .getSingleOrNull();
+    return row?.value == 'true';
+  }
+
+  @override
+  Future<void> setUnlocked(bool value) {
+    return _db.into(_db.appSettingRows).insertOnConflictUpdate(
+          AppSettingRowsCompanion(
+            key: const Value(_unlockedKey),
+            value: Value(value.toString()),
           ),
         );
   }

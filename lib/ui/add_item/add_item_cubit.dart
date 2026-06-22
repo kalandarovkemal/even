@@ -3,31 +3,38 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../core/config/monetization.dart';
 import '../../domain/entities/entry_category.dart';
 import '../../domain/entities/ledger_entry.dart';
 import '../../domain/repositories/ledger_repository.dart';
+import '../../domain/repositories/purchase_repository.dart';
 import '../../domain/usecases/add_entry_service.dart';
 import '../../domain/usecases/currency_converter.dart';
 import '../../domain/usecases/rates_service.dart';
 import '../common/wallet_option.dart';
 import 'add_item_state.dart';
 
+enum AddItemResult { created, needsPaywall, invalid }
+
 class AddItemCubit extends Cubit<AddItemState> {
   AddItemCubit({
     required LedgerRepository ledger,
     required AddEntryService addEntryService,
     required RatesService ratesService,
+    required PurchaseRepository purchase,
     required String initialCurrency,
     Uuid? uuid,
   })  : _ledger = ledger,
         _addEntry = addEntryService,
         _ratesService = ratesService,
+        _purchase = purchase,
         _uuid = uuid ?? const Uuid(),
         super(AddItemState.initial(initialCurrency));
 
   final LedgerRepository _ledger;
   final AddEntryService _addEntry;
   final RatesService _ratesService;
+  final PurchaseRepository _purchase;
   final Uuid _uuid;
 
   StreamSubscription<List<LedgerEntry>>? _walletsSub;
@@ -66,10 +73,19 @@ class AddItemCubit extends Cubit<AddItemState> {
     ));
   }
 
-  Future<bool> submit() async {
+  Future<AddItemResult> submit() async {
     if (!state.canSubmit) {
-      return false;
+      return AddItemResult.invalid;
     }
+
+    final unlocked = await _purchase.isUnlocked();
+    if (!unlocked) {
+      final count = await _ledger.count();
+      if (count >= Monetization.freeEntryLimit) {
+        return AddItemResult.needsPaywall;
+      }
+    }
+
     final fundingId = state.needsFunding ? state.fundingWalletId : null;
 
     CurrencyConverter? converter;
@@ -93,7 +109,7 @@ class AddItemCubit extends Cubit<AddItemState> {
       ),
       now: DateTime.now(),
     );
-    return true;
+    return AddItemResult.created;
   }
 
   @override

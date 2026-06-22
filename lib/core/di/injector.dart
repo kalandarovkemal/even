@@ -5,10 +5,12 @@ import '../../data/remote/fx_api_client.dart';
 import '../../data/repositories/currency_repository_impl.dart';
 import '../../data/repositories/exchange_rate_repository_impl.dart';
 import '../../data/repositories/ledger_repository_impl.dart';
+import '../../data/repositories/purchase_repository_impl.dart';
 import '../../data/repositories/settings_repository_impl.dart';
 import '../../domain/repositories/currency_repository.dart';
 import '../../domain/repositories/exchange_rate_repository.dart';
 import '../../domain/repositories/ledger_repository.dart';
+import '../../domain/repositories/purchase_repository.dart';
 import '../../domain/repositories/settings_repository.dart';
 import '../../domain/usecases/add_entry_service.dart';
 import '../../domain/usecases/portfolio_calculator.dart';
@@ -33,6 +35,14 @@ Future<void> configureDependencies() async {
   final currencyRepository = CurrencyRepositoryImpl(db);
   await currencyRepository.init();
   sl.registerSingleton<CurrencyRepository>(currencyRepository);
+
+  final purchaseRepository = PurchaseRepositoryImpl(sl());
+  try {
+    await purchaseRepository.init();
+  } catch (_) {
+    // store unavailable (e.g. not configured / no connection) — app still works
+  }
+  sl.registerSingleton<PurchaseRepository>(purchaseRepository);
 
   sl.registerLazySingleton<RatesService>(
     () => RatesService(rateRepository: sl(), currencyRepository: sl()),

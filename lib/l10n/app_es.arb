@@ -58,5 +58,13 @@
   "fundToWallet": "¿A dónde va?",
   "notFromBalance": "No desde el balance",
   "notToBalance": "No al balance",
-  "informationalHint": "Esta entrada no afectará tu total."
+  "informationalHint": "Esta entrada no afectará tu total.",
+  "paywallTitle": "Desbloquear Even",
+  "paywallSubtitle": "Pago único. Tuyo para siempre.",
+  "paywallFeatures": "Registros ilimitados · todas las monedas y tasas en vivo · todos los idiomas",
+  "unlock": "Desbloquear",
+  "restore": "Restaurar compras",
+  "freeLimitNote": "Has alcanzado el límite gratuito de registros.",
+  "purchaseThanks": "¡Gracias! Todo está desbloqueado.",
+  "purchaseFailed": "No se pudo completar la compra."
 }

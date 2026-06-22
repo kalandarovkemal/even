@@ -190,4 +190,29 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get informationalHint => 'Esta entrada no afectará tu total.';
+
+  @override
+  String get paywallTitle => 'Desbloquear Even';
+
+  @override
+  String get paywallSubtitle => 'Pago único. Tuyo para siempre.';
+
+  @override
+  String get paywallFeatures =>
+      'Registros ilimitados · todas las monedas y tasas en vivo · todos los idiomas';
+
+  @override
+  String get unlock => 'Desbloquear';
+
+  @override
+  String get restore => 'Restaurar compras';
+
+  @override
+  String get freeLimitNote => 'Has alcanzado el límite gratuito de registros.';
+
+  @override
+  String get purchaseThanks => '¡Gracias! Todo está desbloqueado.';
+
+  @override
+  String get purchaseFailed => 'No se pudo completar la compra.';
 }

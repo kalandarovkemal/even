@@ -11,6 +11,7 @@ import 'hero_total.dart';
 import 'language_selector.dart';
 import 'portfolio_section.dart';
 import 'stale_rates_note.dart';
+import 'unlock_button.dart';
 
 class DashboardContent extends StatelessWidget {
   const DashboardContent({super.key, required this.data});
@@ -27,9 +28,12 @@ class DashboardContent extends StatelessWidget {
         96,
       ),
       children: [
-        const Align(
-          alignment: Alignment.centerRight,
-          child: LanguageSelector(),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            UnlockButton(),
+            LanguageSelector(),
+          ],
         ),
         HeroTotal(
           totalText: data.totalText,

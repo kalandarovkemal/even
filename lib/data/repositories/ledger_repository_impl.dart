@@ -36,6 +36,14 @@ class LedgerRepositoryImpl implements LedgerRepository {
   }
 
   @override
+  Future<int> count() async {
+    final countExp = _db.ledgerEntries.id.count();
+    final query = _db.selectOnly(_db.ledgerEntries)..addColumns([countExp]);
+    final row = await query.getSingle();
+    return row.read(countExp) ?? 0;
+  }
+
+  @override
   Future<void> upsert(LedgerEntry entry) {
     return _db.into(_db.ledgerEntries).insertOnConflictUpdate(
           LedgerEntriesCompanion(

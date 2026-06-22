@@ -11,6 +11,7 @@ import '../../../core/widgets/app_text_field.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../../../domain/repositories/currency_repository.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../paywall/paywall_sheet.dart';
 import '../add_item_cubit.dart';
 import '../add_item_state.dart';
 import 'category_tabs.dart';
@@ -46,9 +47,20 @@ class _AddItemFormState extends State<AddItemForm> {
 
   Future<void> _submit() async {
     final cubit = context.read<AddItemCubit>();
-    final created = await cubit.submit();
-    if (created && mounted) {
-      Navigator.of(context).pop();
+    final navigator = Navigator.of(context);
+    final limitNote = AppLocalizations.of(context).freeLimitNote;
+    final result = await cubit.submit();
+    if (!mounted) {
+      return;
+    }
+    switch (result) {
+      case AddItemResult.created:
+        navigator.pop();
+      case AddItemResult.needsPaywall:
+        navigator.pop();
+        await PaywallSheet.show(navigator.context, note: limitNote);
+      case AddItemResult.invalid:
+        break;
     }
   }
 

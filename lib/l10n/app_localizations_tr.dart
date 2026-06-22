@@ -189,4 +189,29 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get informationalHint => 'Bu kayıt toplamınızı etkilemez.';
+
+  @override
+  String get paywallTitle => 'Even\'i aç';
+
+  @override
+  String get paywallSubtitle => 'Tek seferlik ödeme. Sonsuza dek senin.';
+
+  @override
+  String get paywallFeatures =>
+      'Sınırsız kayıt · tüm para birimleri ve canlı kurlar · tüm diller';
+
+  @override
+  String get unlock => 'Kilidi aç';
+
+  @override
+  String get restore => 'Satın alımları geri yükle';
+
+  @override
+  String get freeLimitNote => 'Ücretsiz kayıt sınırına ulaştınız.';
+
+  @override
+  String get purchaseThanks => 'Teşekkürler! Her şey açıldı.';
+
+  @override
+  String get purchaseFailed => 'Satın alma tamamlanamadı.';
 }

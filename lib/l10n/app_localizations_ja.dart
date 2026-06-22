@@ -184,4 +184,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get informationalHint => 'この項目は合計に影響しません。';
+
+  @override
+  String get paywallTitle => 'Even をアンロック';
+
+  @override
+  String get paywallSubtitle => '一度の支払いで、ずっと使えます。';
+
+  @override
+  String get paywallFeatures => '記録は無制限 · 全通貨とライブレート · 全言語';
+
+  @override
+  String get unlock => 'アンロック';
+
+  @override
+  String get restore => '購入を復元';
+
+  @override
+  String get freeLimitNote => '無料の記録上限に達しました。';
+
+  @override
+  String get purchaseThanks => 'ありがとうございます！すべてアンロックされました。';
+
+  @override
+  String get purchaseFailed => '購入を完了できませんでした。';
 }

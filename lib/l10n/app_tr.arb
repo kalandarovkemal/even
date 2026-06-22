@@ -58,5 +58,13 @@
   "fundToWallet": "Nereye gidiyor?",
   "notFromBalance": "Bakiyeden değil",
   "notToBalance": "Bakiyeye değil",
-  "informationalHint": "Bu kayıt toplamınızı etkilemez."
+  "informationalHint": "Bu kayıt toplamınızı etkilemez.",
+  "paywallTitle": "Even'i aç",
+  "paywallSubtitle": "Tek seferlik ödeme. Sonsuza dek senin.",
+  "paywallFeatures": "Sınırsız kayıt · tüm para birimleri ve canlı kurlar · tüm diller",
+  "unlock": "Kilidi aç",
+  "restore": "Satın alımları geri yükle",
+  "freeLimitNote": "Ücretsiz kayıt sınırına ulaştınız.",
+  "purchaseThanks": "Teşekkürler! Her şey açıldı.",
+  "purchaseFailed": "Satın alma tamamlanamadı."
 }

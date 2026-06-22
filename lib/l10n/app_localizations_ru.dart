@@ -190,4 +190,29 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get informationalHint => 'Эта запись не повлияет на общий итог.';
+
+  @override
+  String get paywallTitle => 'Полный доступ';
+
+  @override
+  String get paywallSubtitle => 'Разовая оплата. Навсегда.';
+
+  @override
+  String get paywallFeatures =>
+      'Без лимита записей · все валюты и живые курсы · все языки';
+
+  @override
+  String get unlock => 'Разблокировать';
+
+  @override
+  String get restore => 'Восстановить покупку';
+
+  @override
+  String get freeLimitNote => 'Достигнут бесплатный лимит записей.';
+
+  @override
+  String get purchaseThanks => 'Спасибо! Всё разблокировано.';
+
+  @override
+  String get purchaseFailed => 'Не удалось завершить покупку.';
 }

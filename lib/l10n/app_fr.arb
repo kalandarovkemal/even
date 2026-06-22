@@ -58,5 +58,13 @@
   "fundToWallet": "Où va l'argent ?",
   "notFromBalance": "Pas depuis le solde",
   "notToBalance": "Pas vers le solde",
-  "informationalHint": "Cette entrée n'affectera pas votre total."
+  "informationalHint": "Cette entrée n'affectera pas votre total.",
+  "paywallTitle": "Débloquer Even",
+  "paywallSubtitle": "Paiement unique. À vous pour toujours.",
+  "paywallFeatures": "Enregistrements illimités · toutes les devises et taux en direct · toutes les langues",
+  "unlock": "Débloquer",
+  "restore": "Restaurer les achats",
+  "freeLimitNote": "Vous avez atteint la limite gratuite d'enregistrements.",
+  "purchaseThanks": "Merci ! Tout est débloqué.",
+  "purchaseFailed": "L'achat n'a pas pu être effectué."
 }

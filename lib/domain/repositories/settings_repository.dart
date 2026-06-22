@@ -10,4 +10,10 @@ abstract interface class SettingsRepository {
   Future<String?> languageCode();
 
   Future<void> setLanguageCode(String code);
+
+  Stream<bool> watchUnlocked();
+
+  Future<bool> isUnlocked();
+
+  Future<void> setUnlocked(bool value);
 }

@@ -33,6 +33,7 @@ class AddItemSheet extends StatelessWidget {
         ledger: sl(),
         addEntryService: sl(),
         ratesService: sl(),
+        purchase: sl(),
         initialCurrency: initialCurrency,
       )..start(),
       child: Container(

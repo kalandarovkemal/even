@@ -192,4 +192,29 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get informationalHint =>
       'Dieser Eintrag beeinflusst Ihr Gesamt nicht.';
+
+  @override
+  String get paywallTitle => 'Even freischalten';
+
+  @override
+  String get paywallSubtitle => 'Einmalzahlung. Für immer deins.';
+
+  @override
+  String get paywallFeatures =>
+      'Unbegrenzte Einträge · alle Währungen & Live-Kurse · alle Sprachen';
+
+  @override
+  String get unlock => 'Freischalten';
+
+  @override
+  String get restore => 'Käufe wiederherstellen';
+
+  @override
+  String get freeLimitNote => 'Du hast das kostenlose Eintragslimit erreicht.';
+
+  @override
+  String get purchaseThanks => 'Danke! Alles ist freigeschaltet.';
+
+  @override
+  String get purchaseFailed => 'Kauf konnte nicht abgeschlossen werden.';
 }

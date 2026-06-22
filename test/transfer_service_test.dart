@@ -14,6 +14,9 @@ class _FakeLedger implements LedgerRepository {
   Future<LedgerEntry?> findById(String id) async => store[id];
 
   @override
+  Future<int> count() async => store.length;
+
+  @override
   Future<void> upsert(LedgerEntry entry) async => store[entry.id] = entry;
 
   @override

@@ -58,5 +58,13 @@
   "fundToWallet": "Where does it go?",
   "notFromBalance": "Not from balance",
   "notToBalance": "Not to balance",
-  "informationalHint": "This entry won't affect your total."
+  "informationalHint": "This entry won't affect your total.",
+  "paywallTitle": "Unlock Even",
+  "paywallSubtitle": "One-time payment. Yours forever.",
+  "paywallFeatures": "Unlimited records · all currencies & live rates · all languages",
+  "unlock": "Unlock",
+  "restore": "Restore purchases",
+  "freeLimitNote": "You've reached the free limit of records.",
+  "purchaseThanks": "Thank you! Everything is unlocked.",
+  "purchaseFailed": "Purchase could not be completed."
 }

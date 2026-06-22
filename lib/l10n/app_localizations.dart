@@ -463,6 +463,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This entry won\'t affect your total.'**
   String get informationalHint;
+
+  /// No description provided for @paywallTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Even'**
+  String get paywallTitle;
+
+  /// No description provided for @paywallSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time payment. Yours forever.'**
+  String get paywallSubtitle;
+
+  /// No description provided for @paywallFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited records · all currencies & live rates · all languages'**
+  String get paywallFeatures;
+
+  /// No description provided for @unlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get unlock;
+
+  /// No description provided for @restore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get restore;
+
+  /// No description provided for @freeLimitNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve reached the free limit of records.'**
+  String get freeLimitNote;
+
+  /// No description provided for @purchaseThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you! Everything is unlocked.'**
+  String get purchaseThanks;
+
+  /// No description provided for @purchaseFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase could not be completed.'**
+  String get purchaseFailed;
 }
 
 class _AppLocalizationsDelegate

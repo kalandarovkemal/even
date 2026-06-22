@@ -58,5 +58,13 @@
   "fundToWallet": "Wohin buchen?",
   "notFromBalance": "Nicht vom Guthaben",
   "notToBalance": "Nicht zum Guthaben",
-  "informationalHint": "Dieser Eintrag beeinflusst Ihr Gesamt nicht."
+  "informationalHint": "Dieser Eintrag beeinflusst Ihr Gesamt nicht.",
+  "paywallTitle": "Even freischalten",
+  "paywallSubtitle": "Einmalzahlung. Für immer deins.",
+  "paywallFeatures": "Unbegrenzte Einträge · alle Währungen & Live-Kurse · alle Sprachen",
+  "unlock": "Freischalten",
+  "restore": "Käufe wiederherstellen",
+  "freeLimitNote": "Du hast das kostenlose Eintragslimit erreicht.",
+  "purchaseThanks": "Danke! Alles ist freigeschaltet.",
+  "purchaseFailed": "Kauf konnte nicht abgeschlossen werden."
 }

@@ -184,4 +184,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get informationalHint => '此记录不会影响您的总计。';
+
+  @override
+  String get paywallTitle => '解锁 Even';
+
+  @override
+  String get paywallSubtitle => '一次付费，永久使用。';
+
+  @override
+  String get paywallFeatures => '无限记录 · 所有货币与实时汇率 · 所有语言';
+
+  @override
+  String get unlock => '解锁';
+
+  @override
+  String get restore => '恢复购买';
+
+  @override
+  String get freeLimitNote => '您已达到免费记录上限。';
+
+  @override
+  String get purchaseThanks => '谢谢！已全部解锁。';
+
+  @override
+  String get purchaseFailed => '购买未能完成。';
 }
