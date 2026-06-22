@@ -12,7 +12,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get currentPortfolio => 'Portefeuille actuel';
 
   @override
-  String get totalLabel => 'Total';
+  String get totalLabel => 'Total ';
 
   @override
   String get viewAll => 'Tout afficher';

@@ -12,7 +12,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get currentPortfolio => '当前投资组合';
 
   @override
-  String get totalLabel => '总计';
+  String get totalLabel => '总计 ';
 
   @override
   String get viewAll => '查看全部';

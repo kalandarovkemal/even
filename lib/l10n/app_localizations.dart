@@ -119,7 +119,7 @@ abstract class AppLocalizations {
   /// No description provided for @totalLabel.
   ///
   /// In en, this message translates to:
-  /// **'Total'**
+  /// **'Total '**
   String get totalLabel;
 
   /// No description provided for @viewAll.

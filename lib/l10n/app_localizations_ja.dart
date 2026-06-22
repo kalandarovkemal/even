@@ -12,7 +12,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get currentPortfolio => '現在のポートフォリオ';
 
   @override
-  String get totalLabel => '合計';
+  String get totalLabel => '合計 ';
 
   @override
   String get viewAll => 'すべて表示';

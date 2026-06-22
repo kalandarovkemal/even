@@ -12,7 +12,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get currentPortfolio => 'Cartera actual';
 
   @override
-  String get totalLabel => 'Total';
+  String get totalLabel => 'Total ';
 
   @override
   String get viewAll => 'Ver todo';

@@ -12,7 +12,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get currentPortfolio => 'Mevcut Portföy';
 
   @override
-  String get totalLabel => 'Toplam';
+  String get totalLabel => 'Toplam ';
 
   @override
   String get viewAll => 'Tümünü Gör';
