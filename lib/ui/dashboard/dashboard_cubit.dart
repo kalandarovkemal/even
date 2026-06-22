@@ -119,6 +119,7 @@ class DashboardCubit extends Cubit<DashboardState> {
               e.money.currencyCode,
             ),
             negative: isLiability,
+            informational: !e.includedInTotal,
           ),
         )
         .toList();

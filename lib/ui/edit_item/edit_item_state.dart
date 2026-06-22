@@ -3,16 +3,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../domain/entities/ledger_entry.dart';
 import '../../domain/entities/transfer_destination.dart';
-
-class WalletOption extends Equatable {
-  const WalletOption({required this.id, required this.name});
-
-  final String id;
-  final String name;
-
-  @override
-  List<Object?> get props => [id, name];
-}
+import '../common/wallet_option.dart';
 
 sealed class EditItemState extends Equatable {
   const EditItemState();

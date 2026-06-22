@@ -42,6 +42,37 @@ void main() {
     expect(summary.total, Decimal.parse('250'));
   });
 
+  test('informational lent (not funded) is excluded from total', () {
+    const calculator = PortfolioCalculator();
+    final converter = CurrencyConverter(
+      displayCurrency: 'USD',
+      unitsPerDisplay: const {},
+    );
+    final now = DateTime(2026);
+
+    final informationalLent = LedgerEntry(
+      id: 'l1',
+      category: EntryCategory.lent,
+      name: 'Old loan',
+      money: Money.parse('200', 'USD'),
+      includedInTotal: false,
+      createdAt: now,
+      updatedAt: now,
+    );
+
+    final summary = calculator.build(
+      entries: [
+        informationalLent,
+        _entry('cash', EntryCategory.balance, '1000'),
+      ],
+      converter: converter,
+      ratesStale: false,
+    );
+
+    expect(summary.group(EntryCategory.lent)!.subtotal, Decimal.parse('200'));
+    expect(summary.total, Decimal.parse('1000'));
+  });
+
   test('total goes negative when debt exceeds assets', () {
     const calculator = PortfolioCalculator();
     final converter = CurrencyConverter(

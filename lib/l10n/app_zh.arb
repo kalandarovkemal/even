@@ -1,13 +1,13 @@
 {
   "@@locale": "zh",
   "currentPortfolio": "当前投资组合",
-  "totalLabel": "总计",
+  "totalLabel": "总计 ",
   "viewAll": "查看全部",
   "subtotal": "小计",
   "ratesOutdated": "汇率可能已过时",
-  "categoryLent": "借出",
-  "categoryDebt": "欠款",
-  "categoryBalance": "余额",
+  "categoryLent": "别人欠我",
+  "categoryDebt": "我欠别人",
+  "categoryBalance": "我手头有",
   "badgeOutbound": "流出",
   "badgeInbound": "流入",
   "badgeAvailable": "可用",
@@ -53,5 +53,10 @@
   "totalDebt": "欠款总额",
   "totalBalance": "余额总额",
   "itemNotFound": "未找到项目",
-  "language": "语言"
+  "language": "语言",
+  "fundFromWallet": "从哪里支出？",
+  "fundToWallet": "存入哪里？",
+  "notFromBalance": "不从余额支出",
+  "notToBalance": "不存入余额",
+  "informationalHint": "此记录不会影响您的总计。"
 }

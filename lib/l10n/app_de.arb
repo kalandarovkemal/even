@@ -5,9 +5,9 @@
   "viewAll": "Alle anzeigen",
   "subtotal": "Zwischensumme",
   "ratesOutdated": "Kurse sind möglicherweise veraltet",
-  "categoryLent": "Verliehen",
-  "categoryDebt": "Schulden",
-  "categoryBalance": "Guthaben",
+  "categoryLent": "Man schuldet mir",
+  "categoryDebt": "Ich schulde",
+  "categoryBalance": "Verfügbar",
   "badgeOutbound": "Ausgehend",
   "badgeInbound": "Eingehend",
   "badgeAvailable": "Verfügbar",
@@ -53,5 +53,10 @@
   "totalDebt": "Gesamtschulden",
   "totalBalance": "Gesamtguthaben",
   "itemNotFound": "Eintrag nicht gefunden",
-  "language": "Sprache"
+  "language": "Sprache",
+  "fundFromWallet": "Woher nehmen?",
+  "fundToWallet": "Wohin buchen?",
+  "notFromBalance": "Nicht vom Guthaben",
+  "notToBalance": "Nicht zum Guthaben",
+  "informationalHint": "Dieser Eintrag beeinflusst Ihr Gesamt nicht."
 }

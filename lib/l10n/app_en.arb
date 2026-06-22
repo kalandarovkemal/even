@@ -1,13 +1,13 @@
 {
   "@@locale": "en",
   "currentPortfolio": "Current Portfolio",
-  "totalLabel": "Total",
+  "totalLabel": "Total ",
   "viewAll": "View All",
   "subtotal": "Subtotal",
   "ratesOutdated": "Rates may be outdated",
-  "categoryLent": "Lent",
-  "categoryDebt": "Debt",
-  "categoryBalance": "Balance",
+  "categoryLent": "They owe me",
+  "categoryDebt": "I owe",
+  "categoryBalance": "On hand",
   "badgeOutbound": "Outbound",
   "badgeInbound": "Inbound",
   "badgeAvailable": "Available",
@@ -53,5 +53,10 @@
   "totalDebt": "Total Debt",
   "totalBalance": "Total Balance",
   "itemNotFound": "Item not found",
-  "language": "Language"
+  "language": "Language",
+  "fundFromWallet": "Where do you take it from?",
+  "fundToWallet": "Where does it go?",
+  "notFromBalance": "Not from balance",
+  "notToBalance": "Not to balance",
+  "informationalHint": "This entry won't affect your total."
 }

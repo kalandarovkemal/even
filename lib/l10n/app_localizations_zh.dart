@@ -24,13 +24,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get ratesOutdated => '汇率可能已过时';
 
   @override
-  String get categoryLent => '借出';
+  String get categoryLent => '别人欠我';
 
   @override
-  String get categoryDebt => '欠款';
+  String get categoryDebt => '我欠别人';
 
   @override
-  String get categoryBalance => '余额';
+  String get categoryBalance => '我手头有';
 
   @override
   String get badgeOutbound => '流出';
@@ -169,4 +169,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get language => '语言';
+
+  @override
+  String get fundFromWallet => '从哪里支出？';
+
+  @override
+  String get fundToWallet => '存入哪里？';
+
+  @override
+  String get notFromBalance => '不从余额支出';
+
+  @override
+  String get notToBalance => '不存入余额';
+
+  @override
+  String get informationalHint => '此记录不会影响您的总计。';
 }

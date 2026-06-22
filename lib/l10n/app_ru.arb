@@ -5,9 +5,9 @@
   "viewAll": "Показать все",
   "subtotal": "Итого",
   "ratesOutdated": "Курсы могут быть устаревшими",
-  "categoryLent": "Выдано",
-  "categoryDebt": "Долги",
-  "categoryBalance": "Баланс",
+  "categoryLent": "Мне должны",
+  "categoryDebt": "Я должен",
+  "categoryBalance": "У меня в наличии",
   "badgeOutbound": "Исходящие",
   "badgeInbound": "Входящие",
   "badgeAvailable": "Доступно",
@@ -53,5 +53,10 @@
   "totalDebt": "Всего долгов",
   "totalBalance": "Всего на балансе",
   "itemNotFound": "Запись не найдена",
-  "language": "Язык"
+  "language": "Язык",
+  "fundFromWallet": "Откуда берём?",
+  "fundToWallet": "Куда зачисляем?",
+  "notFromBalance": "Не из баланса",
+  "notToBalance": "Не в баланс",
+  "informationalHint": "Эта запись не повлияет на общий итог."
 }

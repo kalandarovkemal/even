@@ -12,6 +12,7 @@ class LedgerEntry extends Equatable {
     required this.createdAt,
     required this.updatedAt,
     this.note,
+    this.includedInTotal = true,
   });
 
   final String id;
@@ -21,11 +22,13 @@ class LedgerEntry extends Equatable {
   final String? note;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final bool includedInTotal;
 
   LedgerEntry copyWith({
     String? name,
     Money? money,
     String? note,
+    bool? includedInTotal,
     DateTime? updatedAt,
   }) =>
       LedgerEntry(
@@ -34,10 +37,12 @@ class LedgerEntry extends Equatable {
         name: name ?? this.name,
         money: money ?? this.money,
         note: note ?? this.note,
+        includedInTotal: includedInTotal ?? this.includedInTotal,
         createdAt: createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
       );
 
   @override
-  List<Object?> get props => [id, category, name, money, note, updatedAt];
+  List<Object?> get props =>
+      [id, category, name, money, note, includedInTotal, updatedAt];
 }

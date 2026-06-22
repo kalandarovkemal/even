@@ -24,13 +24,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get ratesOutdated => 'Les taux sont peut-être obsolètes';
 
   @override
-  String get categoryLent => 'Prêté';
+  String get categoryLent => 'On me doit';
 
   @override
-  String get categoryDebt => 'Dette';
+  String get categoryDebt => 'Je dois';
 
   @override
-  String get categoryBalance => 'Solde';
+  String get categoryBalance => 'En main';
 
   @override
   String get badgeOutbound => 'Sortant';
@@ -176,4 +176,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get language => 'Langue';
+
+  @override
+  String get fundFromWallet => 'D\'où provient l\'argent ?';
+
+  @override
+  String get fundToWallet => 'Où va l\'argent ?';
+
+  @override
+  String get notFromBalance => 'Pas depuis le solde';
+
+  @override
+  String get notToBalance => 'Pas vers le solde';
+
+  @override
+  String get informationalHint => 'Cette entrée n\'affectera pas votre total.';
 }

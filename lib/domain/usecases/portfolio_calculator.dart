@@ -27,9 +27,9 @@ class PortfolioCalculator {
       );
     }
 
-    final lent = groups[EntryCategory.lent]!.subtotal;
+    final lent = _countedSum(entries, EntryCategory.lent, converter);
     final balance = groups[EntryCategory.balance]!.subtotal;
-    final debt = groups[EntryCategory.debt]!.subtotal;
+    final debt = _countedSum(entries, EntryCategory.debt, converter);
     final total = lent + balance - debt;
 
     return PortfolioSummary(
@@ -39,4 +39,13 @@ class PortfolioCalculator {
       ratesStale: ratesStale,
     );
   }
+
+  Decimal _countedSum(
+    List<LedgerEntry> entries,
+    EntryCategory category,
+    CurrencyConverter converter,
+  ) =>
+      entries
+          .where((e) => e.category == category && e.includedInTotal)
+          .fold(Decimal.zero, (sum, e) => sum + converter.toDisplay(e.money));
 }

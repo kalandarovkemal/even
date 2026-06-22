@@ -29,7 +29,12 @@ class AddItemSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AddItemCubit>(
-      create: (_) => AddItemCubit(ledger: sl(), initialCurrency: initialCurrency),
+      create: (_) => AddItemCubit(
+        ledger: sl(),
+        addEntryService: sl(),
+        ratesService: sl(),
+        initialCurrency: initialCurrency,
+      )..start(),
       child: Container(
         decoration: const BoxDecoration(
           color: AppColors.background,

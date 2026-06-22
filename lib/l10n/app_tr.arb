@@ -1,13 +1,13 @@
 {
   "@@locale": "tr",
   "currentPortfolio": "Mevcut Portföy",
-  "totalLabel": "Toplam",
+  "totalLabel": "Toplam ",
   "viewAll": "Tümünü Gör",
   "subtotal": "Ara Toplam",
   "ratesOutdated": "Kurlar güncel olmayabilir",
-  "categoryLent": "Verilen",
-  "categoryDebt": "Borç",
-  "categoryBalance": "Bakiye",
+  "categoryLent": "Bana borçlular",
+  "categoryDebt": "Borçluyum",
+  "categoryBalance": "Elimde",
   "badgeOutbound": "Giden",
   "badgeInbound": "Gelen",
   "badgeAvailable": "Mevcut",
@@ -53,5 +53,10 @@
   "totalDebt": "Toplam Borç",
   "totalBalance": "Toplam Bakiye",
   "itemNotFound": "Öğe bulunamadı",
-  "language": "Dil"
+  "language": "Dil",
+  "fundFromWallet": "Nereden alınıyor?",
+  "fundToWallet": "Nereye gidiyor?",
+  "notFromBalance": "Bakiyeden değil",
+  "notToBalance": "Bakiyeye değil",
+  "informationalHint": "Bu kayıt toplamınızı etkilemez."
 }

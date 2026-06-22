@@ -5,6 +5,7 @@ import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_typography.dart';
 import '../../../core/theme/category_palette.dart';
 import '../../../core/widgets/pill_badge.dart';
+import '../../../domain/entities/entry_category.dart';
 import '../../../l10n/app_localizations.dart';
 import '../dashboard_view_data.dart';
 import 'ledger_row_card.dart';
@@ -41,11 +42,12 @@ class PortfolioSection extends StatelessWidget {
               l10n.categoryTitle(section.category),
               style: AppTypography.sectionTitle,
             ),
-            PillBadge(
-              text: l10n.categoryBadge(section.category).toUpperCase(),
-              foreground: palette.foreground,
-              background: palette.background,
-            ),
+            if (section.category == EntryCategory.balance)
+              PillBadge(
+                text: l10n.categoryBadge(section.category).toUpperCase(),
+                foreground: palette.foreground,
+                background: palette.background,
+              ),
           ],
         ),
         const SizedBox(height: AppSpacing.xl),

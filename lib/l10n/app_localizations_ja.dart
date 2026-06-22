@@ -24,13 +24,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get ratesOutdated => 'レートが古い可能性があります';
 
   @override
-  String get categoryLent => '貸付';
+  String get categoryLent => '貸している';
 
   @override
-  String get categoryDebt => '借入';
+  String get categoryDebt => '借りている';
 
   @override
-  String get categoryBalance => '残高';
+  String get categoryBalance => '手元にある';
 
   @override
   String get badgeOutbound => '貸出中';
@@ -169,4 +169,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get language => '言語';
+
+  @override
+  String get fundFromWallet => 'どこから出しますか？';
+
+  @override
+  String get fundToWallet => 'どこへ入れますか？';
+
+  @override
+  String get notFromBalance => '残高から出さない';
+
+  @override
+  String get notToBalance => '残高に入れない';
+
+  @override
+  String get informationalHint => 'この項目は合計に影響しません。';
 }

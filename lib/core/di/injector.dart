@@ -10,6 +10,7 @@ import '../../domain/repositories/currency_repository.dart';
 import '../../domain/repositories/exchange_rate_repository.dart';
 import '../../domain/repositories/ledger_repository.dart';
 import '../../domain/repositories/settings_repository.dart';
+import '../../domain/usecases/add_entry_service.dart';
 import '../../domain/usecases/portfolio_calculator.dart';
 import '../../domain/usecases/rates_service.dart';
 import '../../domain/usecases/transfer_service.dart';
@@ -37,5 +38,6 @@ Future<void> configureDependencies() async {
     () => RatesService(rateRepository: sl(), currencyRepository: sl()),
   );
   sl.registerLazySingleton<TransferService>(() => TransferService(sl()));
+  sl.registerLazySingleton<AddEntryService>(() => AddEntryService(sl()));
   sl.registerLazySingleton<PortfolioCalculator>(PortfolioCalculator.new);
 }

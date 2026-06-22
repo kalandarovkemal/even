@@ -12,6 +12,8 @@ class LedgerEntries extends Table {
   TextColumn get amount => text()();
   TextColumn get currencyCode => text()();
   TextColumn get note => text().nullable()();
+  BoolColumn get includedInTotal =>
+      boolean().withDefault(const Constant(true))();
   IntColumn get createdAt => integer()();
   IntColumn get updatedAt => integer()();
 
@@ -54,5 +56,15 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        onCreate: (m) => m.createAll(),
+        onUpgrade: (m, from, to) async {
+          if (from < 2) {
+            await m.addColumn(ledgerEntries, ledgerEntries.includedInTotal);
+          }
+        },
+      );
 }

@@ -67,6 +67,21 @@ class $LedgerEntriesTable extends LedgerEntries
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _includedInTotalMeta = const VerificationMeta(
+    'includedInTotal',
+  );
+  @override
+  late final GeneratedColumn<bool> includedInTotal = GeneratedColumn<bool>(
+    'included_in_total',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("included_in_total" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
   static const VerificationMeta _createdAtMeta = const VerificationMeta(
     'createdAt',
   );
@@ -97,6 +112,7 @@ class $LedgerEntriesTable extends LedgerEntries
     amount,
     currencyCode,
     note,
+    includedInTotal,
     createdAt,
     updatedAt,
   ];
@@ -158,6 +174,15 @@ class $LedgerEntriesTable extends LedgerEntries
         note.isAcceptableOrUnknown(data['note']!, _noteMeta),
       );
     }
+    if (data.containsKey('included_in_total')) {
+      context.handle(
+        _includedInTotalMeta,
+        includedInTotal.isAcceptableOrUnknown(
+          data['included_in_total']!,
+          _includedInTotalMeta,
+        ),
+      );
+    }
     if (data.containsKey('created_at')) {
       context.handle(
         _createdAtMeta,
@@ -207,6 +232,10 @@ class $LedgerEntriesTable extends LedgerEntries
         DriftSqlType.string,
         data['${effectivePrefix}note'],
       ),
+      includedInTotal: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}included_in_total'],
+      )!,
       createdAt: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}created_at'],
@@ -231,6 +260,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
   final String amount;
   final String currencyCode;
   final String? note;
+  final bool includedInTotal;
   final int createdAt;
   final int updatedAt;
   const LedgerEntryRow({
@@ -240,6 +270,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
     required this.amount,
     required this.currencyCode,
     this.note,
+    required this.includedInTotal,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -254,6 +285,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
     if (!nullToAbsent || note != null) {
       map['note'] = Variable<String>(note);
     }
+    map['included_in_total'] = Variable<bool>(includedInTotal);
     map['created_at'] = Variable<int>(createdAt);
     map['updated_at'] = Variable<int>(updatedAt);
     return map;
@@ -267,6 +299,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
       amount: Value(amount),
       currencyCode: Value(currencyCode),
       note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      includedInTotal: Value(includedInTotal),
       createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
     );
@@ -284,6 +317,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
       amount: serializer.fromJson<String>(json['amount']),
       currencyCode: serializer.fromJson<String>(json['currencyCode']),
       note: serializer.fromJson<String?>(json['note']),
+      includedInTotal: serializer.fromJson<bool>(json['includedInTotal']),
       createdAt: serializer.fromJson<int>(json['createdAt']),
       updatedAt: serializer.fromJson<int>(json['updatedAt']),
     );
@@ -298,6 +332,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
       'amount': serializer.toJson<String>(amount),
       'currencyCode': serializer.toJson<String>(currencyCode),
       'note': serializer.toJson<String?>(note),
+      'includedInTotal': serializer.toJson<bool>(includedInTotal),
       'createdAt': serializer.toJson<int>(createdAt),
       'updatedAt': serializer.toJson<int>(updatedAt),
     };
@@ -310,6 +345,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
     String? amount,
     String? currencyCode,
     Value<String?> note = const Value.absent(),
+    bool? includedInTotal,
     int? createdAt,
     int? updatedAt,
   }) => LedgerEntryRow(
@@ -319,6 +355,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
     amount: amount ?? this.amount,
     currencyCode: currencyCode ?? this.currencyCode,
     note: note.present ? note.value : this.note,
+    includedInTotal: includedInTotal ?? this.includedInTotal,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
   );
@@ -332,6 +369,9 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
           ? data.currencyCode.value
           : this.currencyCode,
       note: data.note.present ? data.note.value : this.note,
+      includedInTotal: data.includedInTotal.present
+          ? data.includedInTotal.value
+          : this.includedInTotal,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -346,6 +386,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
           ..write('amount: $amount, ')
           ..write('currencyCode: $currencyCode, ')
           ..write('note: $note, ')
+          ..write('includedInTotal: $includedInTotal, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
@@ -360,6 +401,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
     amount,
     currencyCode,
     note,
+    includedInTotal,
     createdAt,
     updatedAt,
   );
@@ -373,6 +415,7 @@ class LedgerEntryRow extends DataClass implements Insertable<LedgerEntryRow> {
           other.amount == this.amount &&
           other.currencyCode == this.currencyCode &&
           other.note == this.note &&
+          other.includedInTotal == this.includedInTotal &&
           other.createdAt == this.createdAt &&
           other.updatedAt == this.updatedAt);
 }
@@ -384,6 +427,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
   final Value<String> amount;
   final Value<String> currencyCode;
   final Value<String?> note;
+  final Value<bool> includedInTotal;
   final Value<int> createdAt;
   final Value<int> updatedAt;
   final Value<int> rowid;
@@ -394,6 +438,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
     this.amount = const Value.absent(),
     this.currencyCode = const Value.absent(),
     this.note = const Value.absent(),
+    this.includedInTotal = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
     this.rowid = const Value.absent(),
@@ -405,6 +450,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
     required String amount,
     required String currencyCode,
     this.note = const Value.absent(),
+    this.includedInTotal = const Value.absent(),
     required int createdAt,
     required int updatedAt,
     this.rowid = const Value.absent(),
@@ -422,6 +468,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
     Expression<String>? amount,
     Expression<String>? currencyCode,
     Expression<String>? note,
+    Expression<bool>? includedInTotal,
     Expression<int>? createdAt,
     Expression<int>? updatedAt,
     Expression<int>? rowid,
@@ -433,6 +480,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
       if (amount != null) 'amount': amount,
       if (currencyCode != null) 'currency_code': currencyCode,
       if (note != null) 'note': note,
+      if (includedInTotal != null) 'included_in_total': includedInTotal,
       if (createdAt != null) 'created_at': createdAt,
       if (updatedAt != null) 'updated_at': updatedAt,
       if (rowid != null) 'rowid': rowid,
@@ -446,6 +494,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
     Value<String>? amount,
     Value<String>? currencyCode,
     Value<String?>? note,
+    Value<bool>? includedInTotal,
     Value<int>? createdAt,
     Value<int>? updatedAt,
     Value<int>? rowid,
@@ -457,6 +506,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
       amount: amount ?? this.amount,
       currencyCode: currencyCode ?? this.currencyCode,
       note: note ?? this.note,
+      includedInTotal: includedInTotal ?? this.includedInTotal,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       rowid: rowid ?? this.rowid,
@@ -484,6 +534,9 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
     if (note.present) {
       map['note'] = Variable<String>(note.value);
     }
+    if (includedInTotal.present) {
+      map['included_in_total'] = Variable<bool>(includedInTotal.value);
+    }
     if (createdAt.present) {
       map['created_at'] = Variable<int>(createdAt.value);
     }
@@ -505,6 +558,7 @@ class LedgerEntriesCompanion extends UpdateCompanion<LedgerEntryRow> {
           ..write('amount: $amount, ')
           ..write('currencyCode: $currencyCode, ')
           ..write('note: $note, ')
+          ..write('includedInTotal: $includedInTotal, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt, ')
           ..write('rowid: $rowid')
@@ -1272,6 +1326,7 @@ typedef $$LedgerEntriesTableCreateCompanionBuilder =
       required String amount,
       required String currencyCode,
       Value<String?> note,
+      Value<bool> includedInTotal,
       required int createdAt,
       required int updatedAt,
       Value<int> rowid,
@@ -1284,6 +1339,7 @@ typedef $$LedgerEntriesTableUpdateCompanionBuilder =
       Value<String> amount,
       Value<String> currencyCode,
       Value<String?> note,
+      Value<bool> includedInTotal,
       Value<int> createdAt,
       Value<int> updatedAt,
       Value<int> rowid,
@@ -1325,6 +1381,11 @@ class $$LedgerEntriesTableFilterComposer
 
   ColumnFilters<String> get note => $composableBuilder(
     column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get includedInTotal => $composableBuilder(
+    column: $table.includedInTotal,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -1378,6 +1439,11 @@ class $$LedgerEntriesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<bool> get includedInTotal => $composableBuilder(
+    column: $table.includedInTotal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<int> get createdAt => $composableBuilder(
     column: $table.createdAt,
     builder: (column) => ColumnOrderings(column),
@@ -1417,6 +1483,11 @@ class $$LedgerEntriesTableAnnotationComposer
 
   GeneratedColumn<String> get note =>
       $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<bool> get includedInTotal => $composableBuilder(
+    column: $table.includedInTotal,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<int> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -1462,6 +1533,7 @@ class $$LedgerEntriesTableTableManager
                 Value<String> amount = const Value.absent(),
                 Value<String> currencyCode = const Value.absent(),
                 Value<String?> note = const Value.absent(),
+                Value<bool> includedInTotal = const Value.absent(),
                 Value<int> createdAt = const Value.absent(),
                 Value<int> updatedAt = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
@@ -1472,6 +1544,7 @@ class $$LedgerEntriesTableTableManager
                 amount: amount,
                 currencyCode: currencyCode,
                 note: note,
+                includedInTotal: includedInTotal,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
                 rowid: rowid,
@@ -1484,6 +1557,7 @@ class $$LedgerEntriesTableTableManager
                 required String amount,
                 required String currencyCode,
                 Value<String?> note = const Value.absent(),
+                Value<bool> includedInTotal = const Value.absent(),
                 required int createdAt,
                 required int updatedAt,
                 Value<int> rowid = const Value.absent(),
@@ -1494,6 +1568,7 @@ class $$LedgerEntriesTableTableManager
                 amount: amount,
                 currencyCode: currencyCode,
                 note: note,
+                includedInTotal: includedInTotal,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
                 rowid: rowid,

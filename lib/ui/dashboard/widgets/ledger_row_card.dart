@@ -55,7 +55,30 @@ class LedgerRowCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(row.name, style: AppTypography.itemName),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            row.name,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTypography.itemName.copyWith(
+                              color: row.informational
+                                  ? AppColors.textMuted
+                                  : AppColors.textPrimary,
+                            ),
+                          ),
+                        ),
+                        if (row.informational) ...[
+                          const SizedBox(width: AppSpacing.xs),
+                          const Icon(
+                            Icons.info_outline,
+                            size: 14,
+                            color: AppColors.textMuted,
+                          ),
+                        ],
+                      ],
+                    ),
                     if (row.note != null && row.note!.isNotEmpty)
                       Text(row.note!, style: AppTypography.itemNote),
                   ],
@@ -65,7 +88,9 @@ class LedgerRowCard extends StatelessWidget {
               Text(
                 row.amountText,
                 style: AppTypography.amount.copyWith(
-                  color: row.negative ? AppColors.danger : AppColors.accent,
+                  color: row.informational
+                      ? AppColors.textMuted
+                      : (row.negative ? AppColors.danger : AppColors.accent),
                 ),
               ),
             ],

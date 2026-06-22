@@ -24,13 +24,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ratesOutdated => 'Курсы могут быть устаревшими';
 
   @override
-  String get categoryLent => 'Выдано';
+  String get categoryLent => 'Мне должны';
 
   @override
-  String get categoryDebt => 'Долги';
+  String get categoryDebt => 'Я должен';
 
   @override
-  String get categoryBalance => 'Баланс';
+  String get categoryBalance => 'У меня в наличии';
 
   @override
   String get badgeOutbound => 'Исходящие';
@@ -175,4 +175,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get language => 'Язык';
+
+  @override
+  String get fundFromWallet => 'Откуда берём?';
+
+  @override
+  String get fundToWallet => 'Куда зачисляем?';
+
+  @override
+  String get notFromBalance => 'Не из баланса';
+
+  @override
+  String get notToBalance => 'Не в баланс';
+
+  @override
+  String get informationalHint => 'Эта запись не повлияет на общий итог.';
 }

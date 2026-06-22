@@ -45,6 +45,7 @@ class LedgerRepositoryImpl implements LedgerRepository {
             amount: Value(entry.money.amount.toString()),
             currencyCode: Value(entry.money.currencyCode),
             note: Value(entry.note),
+            includedInTotal: Value(entry.includedInTotal),
             createdAt: Value(entry.createdAt.millisecondsSinceEpoch),
             updatedAt: Value(entry.updatedAt.millisecondsSinceEpoch),
           ),
@@ -65,6 +66,7 @@ class LedgerRepositoryImpl implements LedgerRepository {
           currencyCode: row.currencyCode,
         ),
         note: row.note,
+        includedInTotal: row.includedInTotal,
         createdAt: DateTime.fromMillisecondsSinceEpoch(row.createdAt),
         updatedAt: DateTime.fromMillisecondsSinceEpoch(row.updatedAt),
       );

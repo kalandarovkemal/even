@@ -7,11 +7,11 @@ import '../../../domain/entities/transfer_destination.dart';
 import '../../../l10n/app_localizations.dart';
 import '../edit_item_cubit.dart';
 import '../edit_item_state.dart';
+import '../../common/wallet_chip.dart';
 import 'active_record_card.dart';
 import 'adjust_mode_toggle.dart';
 import 'destination_option.dart';
 import 'transfer_amount_field.dart';
-import 'wallet_chip.dart';
 
 class EditItemBody extends StatelessWidget {
   const EditItemBody({

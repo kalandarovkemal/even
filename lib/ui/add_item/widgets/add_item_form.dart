@@ -14,6 +14,7 @@ import '../../../l10n/app_localizations.dart';
 import '../add_item_cubit.dart';
 import '../add_item_state.dart';
 import 'category_tabs.dart';
+import 'funding_selector.dart';
 
 class AddItemForm extends StatefulWidget {
   const AddItemForm({super.key});
@@ -96,6 +97,15 @@ class _AddItemFormState extends State<AddItemForm> {
                 onChanged: cubit.setAmount,
                 onCurrencyTap: _pickCurrency,
               ),
+              if (state.needsFunding) ...[
+                const SizedBox(height: AppSpacing.xl),
+                FundingSelector(
+                  category: state.category,
+                  wallets: state.wallets,
+                  selectedId: state.fundingWalletId,
+                  onSelected: cubit.setFundingWallet,
+                ),
+              ],
               const SizedBox(height: AppSpacing.xxl),
               PrimaryButton(
                 label: l10n.addItem,

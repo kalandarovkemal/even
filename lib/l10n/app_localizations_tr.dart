@@ -24,13 +24,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ratesOutdated => 'Kurlar güncel olmayabilir';
 
   @override
-  String get categoryLent => 'Verilen';
+  String get categoryLent => 'Bana borçlular';
 
   @override
-  String get categoryDebt => 'Borç';
+  String get categoryDebt => 'Borçluyum';
 
   @override
-  String get categoryBalance => 'Bakiye';
+  String get categoryBalance => 'Elimde';
 
   @override
   String get badgeOutbound => 'Giden';
@@ -174,4 +174,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get language => 'Dil';
+
+  @override
+  String get fundFromWallet => 'Nereden alınıyor?';
+
+  @override
+  String get fundToWallet => 'Nereye gidiyor?';
+
+  @override
+  String get notFromBalance => 'Bakiyeden değil';
+
+  @override
+  String get notToBalance => 'Bakiyeye değil';
+
+  @override
+  String get informationalHint => 'Bu kayıt toplamınızı etkilemez.';
 }

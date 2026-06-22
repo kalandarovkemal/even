@@ -125,6 +125,7 @@ class CategoryDetailCubit extends Cubit<CategoryDetailState> {
       note: entry.note,
       amountText: amountText,
       negative: isLiability,
+      informational: !entry.includedInTotal,
     );
   }
 

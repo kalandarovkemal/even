@@ -143,19 +143,19 @@ abstract class AppLocalizations {
   /// No description provided for @categoryLent.
   ///
   /// In en, this message translates to:
-  /// **'Lent'**
+  /// **'They owe me'**
   String get categoryLent;
 
   /// No description provided for @categoryDebt.
   ///
   /// In en, this message translates to:
-  /// **'Debt'**
+  /// **'I owe'**
   String get categoryDebt;
 
   /// No description provided for @categoryBalance.
   ///
   /// In en, this message translates to:
-  /// **'Balance'**
+  /// **'On hand'**
   String get categoryBalance;
 
   /// No description provided for @badgeOutbound.
@@ -433,6 +433,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @fundFromWallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Where do you take it from?'**
+  String get fundFromWallet;
+
+  /// No description provided for @fundToWallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Where does it go?'**
+  String get fundToWallet;
+
+  /// No description provided for @notFromBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Not from balance'**
+  String get notFromBalance;
+
+  /// No description provided for @notToBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Not to balance'**
+  String get notToBalance;
+
+  /// No description provided for @informationalHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This entry won\'t affect your total.'**
+  String get informationalHint;
 }
 
 class _AppLocalizationsDelegate

@@ -11,6 +11,7 @@ import '../../domain/repositories/ledger_repository.dart';
 import '../../domain/usecases/currency_converter.dart';
 import '../../domain/usecases/rates_service.dart';
 import '../../domain/usecases/transfer_service.dart';
+import '../common/wallet_option.dart';
 import 'edit_item_state.dart';
 
 class EditItemCubit extends Cubit<EditItemState> {

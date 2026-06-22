@@ -44,6 +44,9 @@ class CategoryTabs extends StatelessWidget {
                   ),
                   child: Text(
                     l10n.categoryTitle(category).toUpperCase(),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: AppTypography.fieldLabel.copyWith(
                       color: category == selected
                           ? AppColors.textPrimary

@@ -1,13 +1,13 @@
 {
   "@@locale": "es",
   "currentPortfolio": "Cartera actual",
-  "totalLabel": "Total",
+  "totalLabel": "Total ",
   "viewAll": "Ver todo",
   "subtotal": "Subtotal",
   "ratesOutdated": "Las tasas podrían estar desactualizadas",
-  "categoryLent": "Prestado",
-  "categoryDebt": "Deuda",
-  "categoryBalance": "Balance",
+  "categoryLent": "Me deben",
+  "categoryDebt": "Yo debo",
+  "categoryBalance": "En mano",
   "badgeOutbound": "Saliente",
   "badgeInbound": "Entrante",
   "badgeAvailable": "Disponible",
@@ -53,5 +53,10 @@
   "totalDebt": "Deuda total",
   "totalBalance": "Balance total",
   "itemNotFound": "Elemento no encontrado",
-  "language": "Idioma"
+  "language": "Idioma",
+  "fundFromWallet": "¿De dónde lo tomas?",
+  "fundToWallet": "¿A dónde va?",
+  "notFromBalance": "No desde el balance",
+  "notToBalance": "No al balance",
+  "informationalHint": "Esta entrada no afectará tu total."
 }

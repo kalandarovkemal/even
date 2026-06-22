@@ -9,6 +9,7 @@ class LedgerRowVm extends Equatable {
     required this.amountText,
     this.note,
     this.negative = false,
+    this.informational = false,
   });
 
   final String id;
@@ -16,9 +17,11 @@ class LedgerRowVm extends Equatable {
   final String amountText;
   final String? note;
   final bool negative;
+  final bool informational;
 
   @override
-  List<Object?> get props => [id, name, amountText, note, negative];
+  List<Object?> get props =>
+      [id, name, amountText, note, negative, informational];
 }
 
 class SectionVm extends Equatable {

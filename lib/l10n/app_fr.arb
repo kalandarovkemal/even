@@ -1,13 +1,13 @@
 {
   "@@locale": "fr",
   "currentPortfolio": "Portefeuille actuel",
-  "totalLabel": "Total",
+  "totalLabel": "Total ",
   "viewAll": "Tout afficher",
   "subtotal": "Sous-total",
   "ratesOutdated": "Les taux sont peut-être obsolètes",
-  "categoryLent": "Prêté",
-  "categoryDebt": "Dette",
-  "categoryBalance": "Solde",
+  "categoryLent": "On me doit",
+  "categoryDebt": "Je dois",
+  "categoryBalance": "En main",
   "badgeOutbound": "Sortant",
   "badgeInbound": "Entrant",
   "badgeAvailable": "Disponible",
@@ -53,5 +53,10 @@
   "totalDebt": "Dette totale",
   "totalBalance": "Solde total",
   "itemNotFound": "Élément introuvable",
-  "language": "Langue"
+  "language": "Langue",
+  "fundFromWallet": "D'où provient l'argent ?",
+  "fundToWallet": "Où va l'argent ?",
+  "notFromBalance": "Pas depuis le solde",
+  "notToBalance": "Pas vers le solde",
+  "informationalHint": "Cette entrée n'affectera pas votre total."
 }
