@@ -90,9 +90,7 @@ class PaywallSheet extends StatelessWidget {
                 Text(l10n.paywallFeatures, style: AppTypography.itemName),
                 const SizedBox(height: AppSpacing.xxl),
                 PrimaryButton(
-                  label: state.pending
-                      ? '…'
-                      : '${l10n.unlock} · ${state.price}',
+                  label: state.pending ? '…' : l10n.unlock,
                   onPressed: state.pending ? null : cubit.buy,
                 ),
                 const SizedBox(height: AppSpacing.sm),
