@@ -186,7 +186,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get informationalHint => '此记录不会影响您的总计。';
 
   @override
-  String get paywallTitle => '解锁 Even';
+  String get paywallTitle => '解锁 Evenly';
 
   @override
   String get paywallSubtitle => '一次付费，永久使用。';

@@ -192,7 +192,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get informationalHint => 'Эта запись не повлияет на общий итог.';
 
   @override
-  String get paywallTitle => 'Полный доступ';
+  String get paywallTitle => 'Разблокировать Evenly';
 
   @override
   String get paywallSubtitle => 'Разовая оплата. Навсегда.';

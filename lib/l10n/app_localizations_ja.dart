@@ -186,7 +186,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get informationalHint => 'この項目は合計に影響しません。';
 
   @override
-  String get paywallTitle => 'Even をアンロック';
+  String get paywallTitle => 'Evenly をアンロック';
 
   @override
   String get paywallSubtitle => '一度の支払いで、ずっと使えます。';

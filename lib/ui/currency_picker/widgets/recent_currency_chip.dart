@@ -9,11 +9,13 @@ class RecentCurrencyChip extends StatelessWidget {
     super.key,
     required this.code,
     required this.selected,
+    required this.locked,
     required this.onTap,
   });
 
   final String code;
   final bool selected;
+  final bool locked;
   final VoidCallback onTap;
 
   @override
@@ -45,6 +47,9 @@ class RecentCurrencyChip extends StatelessWidget {
             if (selected) ...[
               const SizedBox(width: AppSpacing.xs),
               const Icon(Icons.check_circle, color: AppColors.accent, size: 16),
+            ] else if (locked) ...[
+              const SizedBox(width: AppSpacing.xs),
+              const Icon(Icons.lock_outline, color: AppColors.textMuted, size: 14),
             ],
           ],
         ),

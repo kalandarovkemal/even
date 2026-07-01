@@ -192,7 +192,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get informationalHint => 'Esta entrada no afectará tu total.';
 
   @override
-  String get paywallTitle => 'Desbloquear Even';
+  String get paywallTitle => 'Desbloquear Evenly';
 
   @override
   String get paywallSubtitle => 'Pago único. Tuyo para siempre.';

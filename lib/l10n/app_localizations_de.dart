@@ -194,7 +194,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Dieser Eintrag beeinflusst Ihr Gesamt nicht.';
 
   @override
-  String get paywallTitle => 'Even freischalten';
+  String get paywallTitle => 'Evenly freischalten';
 
   @override
   String get paywallSubtitle => 'Einmalzahlung. Für immer deins.';

@@ -79,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen>
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: 'even',
+                      text: 'evenly',
                       style: AppTypography.heroTotal.copyWith(
                         color: AppColors.textPrimary,
                         letterSpacing: 0,

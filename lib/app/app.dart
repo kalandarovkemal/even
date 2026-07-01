@@ -21,7 +21,7 @@ class EvenApp extends StatelessWidget {
       child: BlocBuilder<LocaleCubit, Locale?>(
         builder: (context, locale) {
           return MaterialApp(
-            title: 'Even',
+            title: 'Evenly',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.dark,
             locale: locale,

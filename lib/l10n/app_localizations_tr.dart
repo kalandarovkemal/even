@@ -191,7 +191,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get informationalHint => 'Bu kayıt toplamınızı etkilemez.';
 
   @override
-  String get paywallTitle => 'Even\'i aç';
+  String get paywallTitle => 'Evenly\'i aç';
 
   @override
   String get paywallSubtitle => 'Tek seferlik ödeme. Sonsuza dek senin.';

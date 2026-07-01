@@ -467,7 +467,7 @@ abstract class AppLocalizations {
   /// No description provided for @paywallTitle.
   ///
   /// In en, this message translates to:
-  /// **'Unlock Even'**
+  /// **'Unlock Evenly'**
   String get paywallTitle;
 
   /// No description provided for @paywallSubtitle.

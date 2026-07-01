@@ -10,11 +10,13 @@ class CurrencyListTile extends StatelessWidget {
     super.key,
     required this.currency,
     required this.selected,
+    required this.locked,
     required this.onTap,
   });
 
   final Currency currency;
   final bool selected;
+  final bool locked;
   final VoidCallback onTap;
 
   @override
@@ -64,7 +66,10 @@ class CurrencyListTile extends StatelessWidget {
                 ),
               ),
               if (selected)
-                const Icon(Icons.check_circle, color: AppColors.accent, size: 22),
+                const Icon(Icons.check_circle, color: AppColors.accent, size: 22)
+              else if (locked)
+                const Icon(Icons.lock_outline,
+                    color: AppColors.textMuted, size: 20),
             ],
           ),
         ),

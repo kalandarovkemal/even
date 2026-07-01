@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/config/monetization.dart';
 import '../../core/di/injector.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
 import '../../domain/entities/currency.dart';
 import '../../domain/repositories/currency_repository.dart';
 import '../../l10n/app_localizations.dart';
+import '../paywall/paywall_sheet.dart';
+import '../paywall/purchase_cubit.dart';
 import 'widgets/currency_list_tile.dart';
 import 'widgets/currency_search_field.dart';
 import 'widgets/recent_currency_chip.dart';
@@ -30,6 +34,14 @@ class _CurrencyPickerScreenState extends State<CurrencyPickerScreen> {
     super.dispose();
   }
 
+  void _onTap(Currency currency, bool locked) {
+    if (locked) {
+      PaywallSheet.show(context);
+      return;
+    }
+    _select(currency);
+  }
+
   Future<void> _select(Currency currency) async {
     await _currencies.markUsed(currency.code);
     if (!mounted) {
@@ -41,10 +53,13 @@ class _CurrencyPickerScreenState extends State<CurrencyPickerScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final unlocked = context.watch<PurchaseCubit>().state.unlocked;
     final results =
         _query.isEmpty ? _currencies.all() : _currencies.search(_query);
     final recents = _currencies.recent();
     final showRecent = _query.isEmpty && recents.isNotEmpty;
+    bool lockedOf(String code) =>
+        !unlocked && !Monetization.isCurrencyFree(code);
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.selectCurrency), centerTitle: true),
@@ -72,7 +87,9 @@ class _CurrencyPickerScreenState extends State<CurrencyPickerScreen> {
                       RecentCurrencyChip(
                         code: currency.code,
                         selected: currency.code == widget.selectedCode,
-                        onTap: () => _select(currency),
+                        locked: lockedOf(currency.code),
+                        onTap: () =>
+                            _onTap(currency, lockedOf(currency.code)),
                       ),
                   ],
                 ),
@@ -91,10 +108,12 @@ class _CurrencyPickerScreenState extends State<CurrencyPickerScreen> {
                       const SizedBox(height: AppSpacing.md),
                   itemBuilder: (context, index) {
                     final currency = results[index];
+                    final locked = lockedOf(currency.code);
                     return CurrencyListTile(
                       currency: currency,
                       selected: currency.code == widget.selectedCode,
-                      onTap: () => _select(currency),
+                      locked: locked,
+                      onTap: () => _onTap(currency, locked),
                     );
                   },
                 ),
