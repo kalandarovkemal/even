@@ -1,4 +1,4 @@
-package com.evenly.app
+package com.evenly.networth
 
 import io.flutter.embedding.android.FlutterActivity
 
